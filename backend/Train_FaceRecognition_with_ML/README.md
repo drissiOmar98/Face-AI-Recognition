@@ -14,10 +14,11 @@ The project is organized into multiple notebooks, each focusing on a specific st
 
 ## 📑 Table of Contents (Notebooks)
 
-| Notebook                                                                          | Description |
-|-----------------------------------------------------------------------------------|-------------|
-| [01_FRM_data_preprocessing_crop_faces](01_FRM_data_preprocessing_crop_faces.ipynb) | Preprocess raw dataset by detecting and **cropping faces** using OpenCV Haar Cascade. |
-| [02_FRM_data_preprocessing_EDA](02_FRM_data_preprocessing_EDA.ipynb)       | Perform **Exploratory Data Analysis (EDA)** on cropped dataset: visualize samples, check balance, analyze quality. |
+| Notebook                                                                          | Description                                                                                                                                                            |
+|-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [01_FRM_data_preprocessing_crop_faces](01_FRM_data_preprocessing_crop_faces.ipynb) | Preprocess raw dataset by detecting and **cropping faces** using OpenCV Haar Cascade.                                                                                  |
+| [02_FRM_data_preprocessing_EDA](02_FRM_data_preprocessing_EDA.ipynb)       | Perform **Exploratory Data Analysis (EDA)** on cropped dataset: visualize samples, check balance, analyze quality.                                                     |
+| [03_FRM_feature_extraction_eigenfaces](03_FRM_feature_extraction_eigen_face.ipynb) | Apply ** Principal Component Analysis PCA (Eigenfaces)** for dimensionality reduction: extract features, visualize eigenfaces, and save reduced dataset for ML models. |
 
 
 ---
@@ -75,3 +76,39 @@ In this notebook, we explore the **cropped face images** from Notebook 01 to bet
 - Gender distribution is nearly balanced.  
 - Female images tend to have higher resolution than male images.  
 - Filtering and normalization ensured the dataset is **clean, consistent, and training-ready**.
+
+---
+
+## 📘 Notebook 03 — Feature Extraction with Eigenfaces (PCA)
+
+In this notebook, we apply **Principal Component Analysis (PCA)**, also known as the **Eigenfaces method**, to reduce the dimensionality of our preprocessed face dataset.  
+This allows us to capture the **most informative features** while reducing noise and computational cost.
+
+### 🔑 Objectives
+1. **Compute the Mean Face**  
+   - Average face image across the dataset.  
+   - Subtracted from each image for centering before PCA.
+
+2. **Apply PCA (Eigenfaces)**  
+   - Extracted principal components (Eigenfaces) that capture key facial variations.  
+   - Reduced image vectors (10,000 features) to **50 principal components**, retaining ~80% of variance.
+
+3. **Explained Variance Analysis**  
+   - Plotted explained and cumulative variance ratios.  
+   - Used **Elbow Method** to select optimal number of components.
+
+4. **Visualization**  
+   - Displayed the mean face, Eigenfaces, and reconstructed images.  
+   - Compared **original vs reconstructed faces** using 50 components.
+
+5. **Feature Extraction for Classification**  
+   - Transformed dataset into **50-dimensional feature vectors**.  
+   - Saved PCA features and labels to `./data/data_pca_50_target.npz`.  
+   - Saved PCA model & mean face to `./models/pca_dict.pickle`.
+
+### 🎯 Outcome
+- Reduced **dimensionality** of dataset (10,000 → 50 features).  
+- Extracted **informative Eigenface features** for each image.  
+- Prepared dataset for **machine learning classification models**.  
+
+
