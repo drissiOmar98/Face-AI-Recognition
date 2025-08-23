@@ -18,7 +18,7 @@ The project is organized into multiple notebooks, each focusing on a specific st
 |-----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [01_FRM_data_preprocessing_crop_faces](01_FRM_data_preprocessing_crop_faces.ipynb) | Preprocess raw dataset by detecting and **cropping faces** using OpenCV Haar Cascade.                                                                                  |
 | [02_FRM_data_preprocessing_EDA](02_FRM_data_preprocessing_EDA.ipynb)       | Perform **Exploratory Data Analysis (EDA)** on cropped dataset: visualize samples, check balance, analyze quality.                                                     |
-| [03_FRM_feature_extraction_eigenfaces](03_FRM_feature_extraction_eigen_face.ipynb) | Apply ** Principal Component Analysis PCA (Eigenfaces)** for dimensionality reduction: extract features, visualize eigenfaces, and save reduced dataset for ML models. |
+| [03_FRM_feature_extraction_eigenfaces](03_FRM_feature_extraction_eigen_face.ipynb) | Apply **PCA (Eigenfaces)** for dimensionality reduction: extract features, visualize eigenfaces, and save reduced dataset for ML models. |
 
 
 ---
