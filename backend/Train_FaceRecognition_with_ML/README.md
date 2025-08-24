@@ -20,6 +20,7 @@ The project is organized into multiple notebooks, each focusing on a specific st
 | [02_FRM_data_preprocessing_EDA](02_FRM_data_preprocessing_EDA.ipynb)       | Perform **Exploratory Data Analysis (EDA)** on cropped dataset: visualize samples, check balance, analyze quality.                                                     |
 | [03_FRM_feature_extraction_eigenfaces](03_FRM_feature_extraction_eigen_face.ipynb) | Apply **PCA (Eigenfaces)** for dimensionality reduction: extract features, visualize eigenfaces, and save reduced dataset for ML models. |
 | [04_FRM_Machine_Learning](04_FRM_Machine_Learning.ipynb)                           | Train and evaluate **Machine Learning models (SVM, Logistic Regression, Random Forest)** on PCA features for **gender classification**. |
+| [05_FRM_Make_Pipeline](05_FRM_Make_Pipeline.ipynb)                                 | Build a complete **end-to-end pipeline**: face detection → preprocessing → PCA → SVM prediction. Prepares system for **Flask deployment**. |
 
 
 ---
@@ -147,5 +148,48 @@ The goal is to identify the best-performing model for building a reliable gender
 - **Performance Insights:**
   - Female faces classified slightly better than male faces.  
   - Balanced performance overall with Macro F1 ≈ 0.78.  
+
+---
+# 📘 05_FRM_Make_Pipeline
+
+## 🔎 Introduction
+Up until now, we have:
+- **Cropped faces** from raw images.  
+- Conducted **EDA** to assess dataset quality.  
+- Extracted **Eigenfaces (PCA features)**.  
+- Trained an **SVM model** for gender classification.  
+
+This notebook integrates all of these steps into a **single end-to-end pipeline**.  
+The goal is to ensure that any new input image can pass through the same **preprocessing → feature extraction → classification** workflow seamlessly.  
+
+---
+
+## 🎯 Objectives
+1. **Face Detection & Preprocessing**  
+   - Detect faces with OpenCV Haar Cascade.  
+   - Convert to grayscale, resize to uniform shape, normalize, and flatten.  
+
+2. **Feature Extraction (PCA - Eigenfaces)**  
+   - Apply the trained PCA model to reduce dimensionality.  
+   - Reconstruct eigenfaces for visualization.  
+
+3. **Prediction with Trained Classifier**  
+   - Use the best-performing **SVM model** (loaded from disk) to classify gender.  
+   - Display results with labels (Male/Female).  
+
+4. **Pipeline Integration**  
+   - Combine preprocessing, PCA, and SVM into a unified **scikit-learn pipeline**.  
+   - Save the pipeline for direct use in deployment.  
+
+---
+
+## 📊 Results
+- Created a robust **face recognition pipeline** that transforms raw input into predictions.  
+- Example predictions correctly displayed **bounding boxes and gender labels**.  
+- Eigenfaces visualizations confirm that PCA captures key facial features.  
+
+---
+
+
 
 
