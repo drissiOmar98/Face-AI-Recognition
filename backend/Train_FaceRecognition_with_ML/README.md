@@ -19,6 +19,7 @@ The project is organized into multiple notebooks, each focusing on a specific st
 | [01_FRM_data_preprocessing_crop_faces](01_FRM_data_preprocessing_crop_faces.ipynb) | Preprocess raw dataset by detecting and **cropping faces** using OpenCV Haar Cascade.                                                                                  |
 | [02_FRM_data_preprocessing_EDA](02_FRM_data_preprocessing_EDA.ipynb)       | Perform **Exploratory Data Analysis (EDA)** on cropped dataset: visualize samples, check balance, analyze quality.                                                     |
 | [03_FRM_feature_extraction_eigenfaces](03_FRM_feature_extraction_eigen_face.ipynb) | Apply **PCA (Eigenfaces)** for dimensionality reduction: extract features, visualize eigenfaces, and save reduced dataset for ML models. |
+| [04_FRM_Machine_Learning](04_FRM_Machine_Learning.ipynb)                           | Train and evaluate **Machine Learning models (SVM, Logistic Regression, Random Forest)** on PCA features for **gender classification**. |
 
 
 ---
@@ -110,5 +111,41 @@ This allows us to capture the **most informative features** while reducing noise
 - Reduced **dimensionality** of dataset (10,000 → 50 features).  
 - Extracted **informative Eigenface features** for each image.  
 - Prepared dataset for **machine learning classification models**.  
+
+---
+
+## 📘 Notebook 04 — Machine Learning Models for Gender Classification  
+
+In this notebook, we use the **PCA features (Eigenfaces)** extracted in Notebook 03 to train and evaluate different **Machine Learning classifiers** for gender prediction.  
+The goal is to identify the best-performing model for building a reliable gender classification system.  
+
+### 🔑 Objectives  
+1. **Load PCA Features**  
+   - Imported preprocessed dataset from `./data/data_pca_50_target.npz`.  
+   - Used 50 principal components per image as input features.  
+
+2. **Split Dataset**  
+   - Divided into **training (80%)** and **testing (20%)** sets.  
+   - Ensured balanced male/female representation.  
+
+3. **Train Machine Learning Models**  
+    - Apply classifiers such as **Support Vector Machine (SVM)**, Logistic Regression, Random Forest, etc.  
+
+4. **Model Evaluation**  
+   - Measured performance using:  
+     - **Accuracy**.  
+     - **Precision & Recall**.  
+     - **Confusion Matrix & Classification Report**.  
+
+5. **Save Best Model**  
+   - Stored trained models in `./models/` for later inference.  
+   - Prepared for integration with the Flask web application.  
+
+### 🎯 Outcome
+- **Best Model:** SVM with hyperparameter tuning (via `GridSearchCV`)  
+- **Accuracy:** ~78.8%  
+- **Performance Insights:**
+  - Female faces classified slightly better than male faces.  
+  - Balanced performance overall with Macro F1 ≈ 0.78.  
 
 
