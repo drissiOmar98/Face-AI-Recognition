@@ -21,6 +21,7 @@ The project is organized into multiple notebooks, each focusing on a specific st
 | [03_FRM_feature_extraction_eigenfaces](03_FRM_feature_extraction_eigen_face.ipynb) | Apply **PCA (Eigenfaces)** for dimensionality reduction: extract features, visualize eigenfaces, and save reduced dataset for ML models. |
 | [04_FRM_Machine_Learning](04_FRM_Machine_Learning.ipynb)                           | Train and evaluate **Machine Learning models (SVM, Logistic Regression, Random Forest)** on PCA features for **gender classification**. |
 | [05_FRM_Make_Pipeline](05_FRM_Make_Pipeline.ipynb)                                 | Build a complete **end-to-end pipeline**: face detection → preprocessing → PCA → SVM prediction. Prepares system for **Flask deployment**. |
+| [06_FRM_Predictions](06_FRM_Predictions.ipynb)                           | Apply the finalized pipeline for **gender prediction** on static images and **real-time video streams** using Haar Cascade, PCA, and SVM. |
 
 
 ---
@@ -191,5 +192,35 @@ The goal is to ensure that any new input image can pass through the same **prepr
 ---
 
 
+## 📘 Notebook 06 — Face Recognition & Gender Prediction
+
+In this notebook, we integrate the **complete face recognition pipeline** to perform gender predictions on both static images and real-time video streams.  
+The pipeline combines **Haar Cascade** for face detection, **PCA (Eigenfaces)** for feature extraction, and **SVM** for classification.
+
+### 🔑 Objectives
+1. **Static Image Prediction**  
+   - Load and process test images.  
+   - Detect faces, extract features, and predict gender.  
+   - Visualize results with bounding boxes, confidence scores, grayscale crops, and reconstructed eigenfaces.
+
+2. **Real-Time Video Prediction**  
+   - Capture frames from webcam or video files using OpenCV.  
+   - Apply the full recognition pipeline in real-time.  
+   - Display annotated video feed with predicted gender and confidence.  
+   - Press **`q`** to quit the stream.
+
+3. **Pipeline Implementation**  
+   - Modular `faceRecognitionPipeline()` handles preprocessing, PCA transformation, and SVM classification.  
+   - Reusable for both image and video inputs.  
+
+### 🎯 Outcome
+- Achieved **end-to-end gender prediction** on images and videos.  
+- Demonstrated the **robustness** of PCA + SVM pipeline for both batch and streaming inputs.  
+- Enabled easy integration into future **web or desktop applications**.  
+
+### 🔜 Next Step
+- Deploy the pipeline in a **Flask or FastAPI web application**.  
+- Extend classification beyond gender (e.g., **emotion recognition**).  
+- Optimize performance using **GPU acceleration** or lightweight models for faster inference.  
 
 
