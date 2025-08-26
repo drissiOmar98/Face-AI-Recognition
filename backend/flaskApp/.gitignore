@@ -1,0 +1,43 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.pickle
+
+# --- Virtual Environment ---
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Flask specific ---
+instance/
+*.log
+*.db
+*.sqlite3
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+*.ipynb_save
+profile_default/
+.ipython/
+
+# --- Data & Models ---
+/data/
+/models/
+/output/
+/checkpoints/
+/runs/
+
+# --- System files ---
+.DS_Store
+Thumbs.db
+
+# --- VS Code / PyCharm ---
+.vscode/
+.idea/
